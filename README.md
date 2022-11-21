@@ -160,5 +160,153 @@ let p:Persons = data;
 let persons:Persons = getData() as Persons;
 ```
 
+High Order Functions in typescript:
+* functions which accept function as argument
+* functions return a function
+
+function map<T, R>(elems: T[], transformFn:(elem:T) => R): R[] {
+	let res:R[] = [];
+ // code.
+
+   return res;
+}
+
+=====================
+type User {
+	..
+}
+
+function fetchUsers() : Promise<User[]> {
+	..
+}
+
+tsc --lib ES2015, dom <<file>>.ts
+
+-------------------------
+
+JavaScript in TypeScript
+
+1) create a node project
+
+tscexample> npm init --y
+
+2) tscexample> npm install typescript lodash
+
+3) tscexample> tsc --init
+
+Option 1:
+typings.d.ts
+declare module 'lodash' {
+    export function random(min:number, max: number) : number;
+}
+
+
+Option 2:
+npm i @types/lodash -D
+
+https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types
+
+========================================
+
+
+class Product {
+	id, name, price
+	getters and setter
+}
+
+class Mobile extends Product {
+	camera
+}
+
+class Tv extends Product{
+	screenInfo
+}
+
+Decorators
+
+"experimentalDecorators": true,
+
+Angular Example:
+
+@Validate()
+@Injectable()
+@Component({
+	selector: 'customer',
+	templateUrl : './customer.html',
+	styleUrl: './styles.css'
+})
+class CustomerCardComponent {
+	customer: Customer;
+
+	addCustomer() {}
+	deleteCustomer() {}
+}
+
+<customer></customer>
+
+---
+
+React:
+class CustomerCardComponent extends Component {
+}
+
+Decorators:
+1) class level
+2) method level
+3) property
+4) argument
+
+
+
+@Component
+class Customer {
+
+	@Required
+	@Min(length="3")
+	name:string;
+
+	@Log()
+	doTask(@NotNull arg:any) {
+
+	}
+}
+
+AOP
+
+-----------------------------------
+
+```
+export default class Person {
+    name: string
+    age: number;
+
+    constructor(name:string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+```
+
+Signature for decorators:
+1) function classDecorator(constructor:Function) {}
+2) function propertyDecorator(target:any, propertyKey:string) {}
+3) function methodDecorator(target:any, methodName:string, descriptor:PropertyDescriptor) {}
+
+@Nationality
+class Person {
+
+	@Upper
+	name:string;
+
+	@Log
+	doTask() {}
+}
+
+Proxy ==> Log() then doTask()
+
+
+
+
 
 
